@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastAPI Task Manager</title>
+    <!-- Google Fonts: Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+    </div>
+
+    <div class="container glass-panel">
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-layer-group"></i>
+                <h1>NexusTasks</h1>
+            </div>
+            <button id="logoutBtn" class="btn-icon" style="display: none;" title="Logout">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </button>
+        </header>
+
+        <!-- Auth Section -->
+        <section id="authSection">
+            <div class="auth-box">
+                <h2><i class="fa-solid fa-fingerprint"></i> Authentication</h2>
+                <p class="subtitle">Access your workspace</p>
+                
+                <div class="auth-forms-container">
+                    <div class="form-wrapper">
+                        <h3>Login</h3>
+                        <form id="loginForm">
+                            <div class="input-group">
+                                <i class="fa-solid fa-envelope"></i>
+                                <input type="email" id="loginEmail" placeholder="Email Address" required>
+                            </div>
+                            <div class="input-group">
+                                <i class="fa-solid fa-lock"></i>
+                                <input type="password" id="loginPassword" placeholder="Password" required>
+                            </div>
+                            <button type="submit" class="btn-primary">Enter Workspace</button>
+                        </form>
+                    </div>
+                    
+                    <div class="divider"></div>
+                    
+                    <div class="form-wrapper">
+                        <h3>Register</h3>
+                        <form id="registerForm">
+                            <div class="input-group">
+                                <i class="fa-solid fa-envelope"></i>
+                                <input type="email" id="regEmail" placeholder="Email Address" required>
+                            </div>
+                            <div class="input-group">
+                                <i class="fa-solid fa-lock"></i>
+                                <input type="password" id="regPassword" placeholder="Password" required>
+                            </div>
+                            <button type="submit" class="btn-secondary">Create Account</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main App Section -->
+        <section id="appSection" style="display: none;">
+            <div class="task-creation">
+                <form id="createTaskForm">
+                    <div class="input-group large">
+                        <i class="fa-solid fa-bolt"></i>
+                        <input type="text" id="taskTitle" placeholder="What needs to be done?" required autocomplete="off">
+                        <button type="submit" class="btn-primary icon-only"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="task-list-container">
+                <div class="filters">
+                    <label class="radio-btn">
+                        <input type="radio" name="filter" value="all" checked>
+                        <span>All</span>
+                    </label>
+                    <label class="radio-btn">
+                        <input type="radio" name="filter" value="active">
+                        <span>Active</span>
+                    </label>
+                    <label class="radio-btn">
+                        <input type="radio" name="filter" value="completed">
+                        <span>Completed</span>
+                    </label>
+                </div>
+                
+                <ul id="taskList">
+                    <!-- Tasks will be rendered here dynamically -->
+                </ul>
+                
+                <div class="pagination">
+                    <button id="prevBtn" class="btn-ghost" disabled><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="pageInfo" class="badge">Page 1</span>
+                    <button id="nextBtn" class="btn-ghost"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+        
+        <div id="messageBox" class="toast"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
