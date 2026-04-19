@@ -105,6 +105,6 @@ docker run -p 8000:8000 --env-file .env fastapi-task-manager
 
 ## Deployment
 
-Deployed on **Render / Railway**: [Insert your live URL here]
+Deployed on **Render**: https://fastapi-task-manager-7gt1.onrender.com
 
 > Set `SECRET_KEY` and `DATABASE_URL` as environment variables in your hosting dashboard. Do **not** commit `.env`.
